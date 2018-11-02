@@ -55,15 +55,6 @@ module HtmlToPlainText
       htext.each_line { |l| llength = l.strip.length; hlength = llength if llength > hlength }
       hlength = line_length if hlength > line_length
 
-      case hlevel
-        when 1   # H1, asterisks above and below
-          htext = ('*' * hlength) + "\n" + htext + "\n" + ('*' * hlength)
-        when 2   # H1, dashes above and below
-          htext = ('-' * hlength) + "\n" + htext + "\n" + ('-' * hlength)
-        else     # H3-H6, dashes below
-          htext = htext + "\n" + ('-' * hlength)
-      end
-
       "\n\n" + htext + "\n\n"
     end
 
